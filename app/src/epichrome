@@ -1019,11 +1019,11 @@ myEngineExec="$myEngineContents/MacOS/$engineExec"
 if [[ "$newprofile" ]] ; then
     # if we're creating a new profile (first run), run once with a page
     # instructing the user to enable Epichrome Helper
-    myCommand=( "$myEngineExec" --user-data-dir="$myProfilePath" \
+    myCommand=( "$myEngineExec" --user-data-dir="$myProfilePath" "$@" \
 				"file://$myContents/Resources/FirstRun/welcome.html" )
 else
 # normal run -- use the regular command line
-    myCommand=( "$myEngineExec" --user-data-dir="$myProfilePath" "${SSBCommandLine[@]}" )
+    myCommand=( "$myEngineExec" --user-data-dir="$myProfilePath" "$@" "${SSBCommandLine[@]}" )
 fi
 
 
